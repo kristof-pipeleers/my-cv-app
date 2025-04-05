@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CVData } from "../types";
-import Biography from "./Biography";
+import BiographyTab from "./BiographyTab";
 import SkillsTab from "./SkillsTab";
 import EducationTab from "./EducationTab";
 
@@ -44,7 +44,7 @@ const TabSwitch: React.FC<Props> = ({ data }) => {
         {/* Content based on active tab */}
         <div className="mt-10 bg-[#1E293B]/30 rounded-xl p-8 backdrop-blur-sm shadow-xl">
           <div className="grid md:grid-cols-2 gap-8">
-            {activeTab === "biography" && <Biography data={data} />}
+            {activeTab === "biography" && <BiographyTab data={data} />}
             {activeTab === "skills" && <SkillsTab data={data} />}
             {activeTab === "education" && <EducationTab data={data} />}
           </div>

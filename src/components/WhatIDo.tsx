@@ -1,45 +1,11 @@
 import React from "react";
+import { CVData } from "../types";
 
-interface ServiceCard {
-  title: string;
-  icon: string;
-  description: string;
+interface Props {
+  data: CVData;
 }
 
-const WhatIDo: React.FC = () => {
-  const services: ServiceCard[] = [
-    {
-      title: "UX/UI Design",
-      icon: "fas fa-pencil-ruler",
-      description: "Creating intuitive and engaging user experiences with modern interface design principles."
-    },
-    {
-      title: "Creative Design",
-      icon: "fas fa-palette",
-      description: "Developing unique visual concepts that communicate your brand's message effectively."
-    },
-    {
-      title: "Web Design",
-      icon: "fas fa-code",
-      description: "Building responsive, fast, and accessible websites that look great on any device."
-    },
-    {
-      title: "Branding",
-      icon: "fas fa-bullhorn",
-      description: "Crafting distinctive brand identities that resonate with your target audience."
-    },
-    {
-      title: "Photography",
-      icon: "fas fa-camera",
-      description: "Capturing high-quality images that tell your story and enhance your visual presence."
-    },
-    {
-      title: "Mobile App Development",
-      icon: "fas fa-mobile-alt",
-      description: "Developing native and cross-platform mobile applications with intuitive interfaces."
-    }
-  ];
-
+const WhatIDo: React.FC<Props> = ({ data }) => {
   return (
     <div className="relative w-full bg-gradient-to-b from-[#0F172A] to-[#0B1120] pt-20 pb-20 px-4 -mt-10">
       {/* Gradient overlay for smooth transition */}
@@ -50,12 +16,12 @@ const WhatIDo: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">What I Do</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto mb-6"></div>
           <p className="text-blue-200 max-w-2xl mx-auto">
-            I offer a wide range of services to help businesses and individuals establish a strong online presence.
+          Areas I explore, work on, and continuously learn about.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+          {data.services.map((service, index) => (
             <div 
               key={index}
               className="bg-[#1E293B]/40 backdrop-blur-sm p-8 rounded-xl border border-blue-700/10 

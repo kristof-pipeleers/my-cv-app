@@ -8,7 +8,7 @@ const App: React.FC = () => {
   return (
     <div className="bg-[#0B1120] min-h-screen">
       <Hero data={cvData} />
-      <WhatIDo />
+      <WhatIDo data={cvData} />
       <TabSwitch data={cvData} />
     </div>
   );

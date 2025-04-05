@@ -11,14 +11,6 @@ interface Props {
 const Hero: React.FC<Props> = ({ data }) => {
   const [init, setInit] = useState(false);
   
-  // Social media icons data
-  const socialIcons = [
-    { name: "LinkedIn", icon: "fab fa-linkedin", url: "https://linkedin.com" },
-    { name: "GitHub", icon: "fab fa-github", url: "https://github.com" },
-    { name: "Twitter", icon: "fab fa-twitter", url: "https://twitter.com" },
-    { name: "Instagram", icon: "fab fa-instagram", url: "https://instagram.com" }
-  ];
-
   // Initialize particles engine
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -31,6 +23,34 @@ const Hero: React.FC<Props> = ({ data }) => {
   const particlesLoaded = useCallback(async (container: Container | undefined) => {
     console.log(container);
   }, []);
+
+  // Helper function to generate contact URLs
+  const getContactUrl = (type: string, value: string) => {
+    switch (type) {
+      case 'email':
+        return `mailto:${value}`;
+      case 'phone':
+        return `tel:${value.replace(/\s/g, '')}`;
+      case 'address':
+        return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(value)}`;
+      default:
+        return value;
+    }
+  };
+
+  // Helper function to get contact value
+  const getContactValue = (type: string) => {
+    switch (type) {
+      case 'email':
+        return data.contact.email;
+      case 'phone':
+        return data.contact.phone;
+      case 'address':
+        return data.contact.address;
+      default:
+        return '';
+    }
+  };
 
   return (
     <div className="relative w-full bg-gradient-to-b from-[#1A1A2E] via-[#16213E] to-[#0F172A] text-white py-20 overflow-visible">
@@ -132,8 +152,8 @@ const Hero: React.FC<Props> = ({ data }) => {
               <h2 className="text-2xl md:text-3xl text-blue-200 mb-4">{data.hero.role}</h2>
               
               {/* Social Media Icons */}
-              <div className="flex space-x-4 mb-6">
-                {socialIcons.map((social, index) => (
+              <div className="flex space-x-4 mb-8">
+                {data.socialIcons.map((social, index) => (
                   <a 
                     key={index} 
                     href={social.url} 
@@ -148,14 +168,32 @@ const Hero: React.FC<Props> = ({ data }) => {
               </div>
             </div>
             
-            <p className="text-lg text-blue-100 leading-relaxed mb-6">
+            <p className="text-lg text-blue-100 leading-relaxed mb-8">
               {data.hero.description}
             </p>
             
-            {/* CTA Button */}
-            <button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-medium py-2 px-6 rounded-full transition-all duration-300 hover:shadow-lg shadow-blue-500/20">
-              More About Me
-            </button>
+            {/* Contact Block */}
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold text-white mb-4">CONTACT</h3>
+              <div className="space-y-3">
+                {data.contactIcons.map((contact, index) => (
+                  <a 
+                    key={index}
+                    href={getContactUrl(contact.type, getContactValue(contact.type))}
+                    target={contact.type === 'address' ? '_blank' : undefined}
+                    rel={contact.type === 'address' ? 'noopener noreferrer' : undefined}
+                    className="flex items-center group hover:text-blue-400 transition-colors duration-300"
+                  >
+                    <div className="bg-blue-700/50 group-hover:bg-blue-600 p-2 rounded-full transition-all duration-300 mr-3 backdrop-blur-sm">
+                      <i className={`${contact.icon} text-white text-lg w-5 h-5 flex items-center justify-center`}></i>
+                    </div>
+                    <span className="font-mono text-sm md:text-base text-blue-100 group-hover:text-blue-300 transition-colors duration-300">
+                      {getContactValue(contact.type)}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Right Section - Person Image */}

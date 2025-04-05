@@ -53,17 +53,17 @@ const EducationTab: React.FC<Props> = ({ data }) => {
             
             {/* Education Details */}
             <div className="flex-1">
-              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
-                <div>
-                  <h3 className="text-xl font-bold text-white">
-                    {edu.degree}
-                  </h3>
-                  <p className="text-blue-300">{edu.school}</p>
-                </div>
-                <span className="bg-blue-700/50 text-blue-200 px-4 py-1 rounded-full text-sm mt-2 sm:mt-0">
-                  {edu.years}
-                </span>
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
+              <div>
+                <h3 className="text-xl font-bold text-white">
+                  {edu.degree}
+                </h3>
+                <p className="text-blue-300">{edu.school}</p>
               </div>
+              <span className="bg-blue-700/50 text-blue-200 px-4 py-1 rounded-full text-sm mt-2 sm:mt-0 whitespace-nowrap inline-block shrink-0">
+                {edu.years}
+              </span>
+            </div>
               
               {/* Expanded content */}
               <div className={`mt-4 text-blue-100 transition-all duration-300 overflow-hidden ${

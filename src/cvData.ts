@@ -2,10 +2,10 @@ import { CVData } from "./types";
 
 export const cvData: CVData = {
   hero: {
-    welcome: "Welcome To Dreamer",
+    welcome: "Welcome",
     name: "Kristof Pipeleers",
-    role: "Web Developer",
-    description: "There are many variations of passages of forum available dreamers have suffered We put your ideas and thus your wishes variations of"
+    role: "Data Analytics Engineer",
+    description: "Data Analytics Engineer with a passion for building scalable data cloud solutions, and exploring AI-driven innovations in analytics and automation."
   },
   name: "Kristof Pipeleers",
   contact: {
@@ -13,28 +13,84 @@ export const cvData: CVData = {
     phone: "+32 468 12 88 94",
     address: "Zavelvennestraat 121, 3500 Hasselt",
   },
+  socialIcons: [
+    { 
+      name: "LinkedIn", 
+      icon: "fab fa-linkedin", 
+      url: "https://linkedin.com/in/kristof-pipeleers" 
+    },
+    { 
+      name: "GitHub", 
+      icon: "fab fa-github", 
+      url: "https://github.com/kristofpipeleers" 
+    },
+    { 
+      name: "Twitter", 
+      icon: "fab fa-twitter", 
+      url: "https://twitter.com/kristofpip" 
+    },
+    { 
+      name: "Instagram", 
+      icon: "fab fa-instagram", 
+      url: "https://instagram.com/kristofpip" 
+    }
+  ],
+  contactIcons: [
+    { 
+      name: "Email",
+      icon: "fas fa-envelope",
+      type: "email"
+    },
+    { 
+      name: "Phone",
+      icon: "fas fa-phone",
+      type: "phone"
+    },
+    { 
+      name: "Address",
+      icon: "fas fa-map-marker-alt",
+      type: "address"
+    }
+  ],
+  services: [
+    {
+      "title": "Data Engineering & Cloud Solutions",
+      "icon": "fas fa-database",
+      "description": "Designing scalable data pipelines and orchestrating workflows using Microsoft Fabric, dbt, and medallion architecture. Leveraging Microsoft Azure for cloud-based data solutions."
+    },
+    {
+      "title": "Data Analytics & Visualization",
+      "icon": "fas fa-chart-line",
+      "description": "Transforming raw data into actionable insights through advanced analytics and reporting. Building interactive dashboards with Power BI to support data-driven decision-making."
+    },
+    {
+      "title": "AI & Machine Learning",
+      "icon": "fas fa-brain",
+      "description": "Exploring generative AI, predictive modeling, and AI-powered automation. Developing chatbots and AI-driven tools with OpenAI and Azure AI services."
+    }
+  ],
   education: [
     { 
-      school: "Postgraduaat Innoverend Ondernemen", 
+      school: "Postgraduate Programme in Innovation & Entrepreneurship in Engineering", 
       degree: "Postgraduate Programme in Innovation & Entrepreneurship in Engineering", 
       years: "2023 - 2024",
       logo: "postgrad-logo.jpg"
     },
     { 
       school: "KU Leuven Campus Groep T", 
-      degree: "Master Degree, Internet Computing", 
+      degree: "Master's Degree, Internet Computing", 
       years: "2022 - 2023",
       logo: "kuleuven-logo.jpg" 
     },
     { 
       school: "KU Leuven Campus Groep T", 
-      degree: "Master in Industriële Wetenschappen: Elektronica-ICT", 
+      degree: "Master's in Industrial Sciences: Electronics-ICT", 
       years: "2019 - 2023",
       logo: "kuleuven-logo.jpg" 
     },
     { 
       school: "Scholen Kindsheid Jesu", 
-      degree: "Science & Math", 
+      degree: "Science & Mathematics", 
       years: "2013 - 2019",
       logo: "ksj-logo.jpg" 
     }
@@ -45,10 +101,52 @@ export const cvData: CVData = {
   ],
   skills: ["Java", "C / C++", "Python", "Assembly", "SQL", "HTML/CSS", "JavaScript"],
   languages: [
-    { name: "Nederlands", level: "Moedertaal" },
-    { name: "Engels", level: "Vloeiend" },
-    { name: "Frans", level: "Matig" },
-    { name: "Duits", level: "Matig" },
+    {
+      name: "Nederlands",
+      level: { nl: "Moedertaal", en: "Native" },
+      proficiency: 100
+    },
+    {
+      name: "Engels",
+      level: { nl: "Vloeiend", en: "Fluent" },
+      proficiency: 90
+    },
+    {
+      name: "Frans",
+      level: { nl: "Matig", en: "Intermediate" },
+      proficiency: 60
+    },
+    {
+      name: "Duits",
+      level: { nl: "Matig", en: "Intermediate" },
+      proficiency: 50
+    }
   ],
   hobbies: ["Tennis", "Zaalvoetbal", "Drum", "Instrumentaal slagwerk"],
+  qualities: [
+    {
+      id: "planning",
+      title: "PLANNING",
+      icon: "fas fa-calendar-check",
+      description: "A full schedule doesn't intimidate me. On the contrary, planning my work efficiently gives me a sense of calm. I prefer starting tasks early to ensure satisfactory results."
+    },
+    {
+      id: "perseverance", 
+      title: "PERSEVERANCE",
+      icon: "fas fa-fist-raised",
+      description: "When I start something, I strive for the best possible outcome. I don't like giving up - whether in professional work or personal hobbies like tennis or music."
+    },
+    {
+      id: "teamwork",
+      title: "TEAMWORK",
+      icon: "fas fa-users",
+      description: "Groups that work with mutual consideration and initiative create great results. Diversity in personalities and talents significantly enhances outcomes."
+    },
+    {
+      id: "diligence",
+      title: "DILIGENCE",
+      icon: "fas fa-fire", 
+      description: "When interested in a topic, I commit 100%. I find fulfillment in continuous learning and seeing my professional growth."
+    }
+  ]
 }; 
