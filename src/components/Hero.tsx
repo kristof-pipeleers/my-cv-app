@@ -53,7 +53,7 @@ const Hero: React.FC<Props> = ({ data }) => {
   };
 
   return (
-    <div className="relative w-full bg-gradient-to-b from-[#1A1A2E] via-[#16213E] to-[#0F172A] text-white py-20 overflow-visible">
+    <div className="relative w-full bg-gradient-to-b from-[#1A1A2E] via-[#16213E] to-[#0F172A] text-white py-12 sm:py-20 overflow-visible">
       {/* Particles background - extended height to overlap with WhatIDo section */}
       {init && <Particles
         id="tsparticles"
@@ -140,19 +140,19 @@ const Hero: React.FC<Props> = ({ data }) => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-purple-500 blur-3xl opacity-20"></div>
       </div>
       
-      <div className="relative max-w-6xl mx-auto px-4 md:px-8 z-20">
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+      <div className="relative max-w-6xl mx-auto px-3 sm:px-4 md:px-8 z-20">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
           {/* Left Section - Text Content */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             <div className="animate-fade-in">
-              <p className="text-blue-300 text-lg font-medium mb-2">{data.hero.welcome}</p>
-              <h1 className="text-4xl md:text-5xl font-bold mb-2">
+              <p className="text-blue-300 text-base sm:text-lg font-medium mb-2">{data.hero.welcome}</p>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">
                 Hi I am <span className="text-blue-400">{data.hero.name}</span>
               </h1>
-              <h2 className="text-2xl md:text-3xl text-blue-200 mb-4">{data.hero.role}</h2>
+              <h2 className="text-xl sm:text-2xl md:text-3xl text-blue-200 mb-4">{data.hero.role}</h2>
               
               {/* Social Media Icons */}
-              <div className="flex space-x-4 mb-8">
+              <div className="flex flex-wrap gap-3 sm:gap-4 mb-6 sm:mb-8">
                 {data.socialIcons.map((social, index) => (
                   <a 
                     key={index} 
@@ -162,20 +162,20 @@ const Hero: React.FC<Props> = ({ data }) => {
                     className="bg-blue-700/50 hover:bg-blue-600 p-2 rounded-full transition-all duration-300 hover:scale-110 backdrop-blur-sm"
                     aria-label={social.name}
                   >
-                    <i className={`${social.icon} text-white text-xl`}></i>
+                    <i className={`${social.icon} text-white text-lg sm:text-xl`}></i>
                   </a>
                 ))}
               </div>
             </div>
             
-            <p className="text-lg text-blue-100 leading-relaxed mb-8">
+            <p className="text-base sm:text-lg text-blue-100 leading-relaxed mb-6 sm:mb-8">
               {data.hero.description}
             </p>
             
             {/* Contact Block */}
-            <div className="space-y-4">
-              <h3 className="text-xl font-bold text-white mb-4">CONTACT</h3>
-              <div className="space-y-3">
+            <div className="space-y-3 sm:space-y-4">
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">CONTACT</h3>
+              <div className="space-y-2 sm:space-y-3">
                 {data.contactIcons.map((contact, index) => (
                   <a 
                     key={index}
@@ -184,10 +184,10 @@ const Hero: React.FC<Props> = ({ data }) => {
                     rel={contact.type === 'address' ? 'noopener noreferrer' : undefined}
                     className="flex items-center group hover:text-blue-400 transition-colors duration-300"
                   >
-                    <div className="bg-blue-700/50 group-hover:bg-blue-600 p-2 rounded-full transition-all duration-300 mr-3 backdrop-blur-sm">
-                      <i className={`${contact.icon} text-white text-lg w-5 h-5 flex items-center justify-center`}></i>
+                    <div className="bg-blue-700/50 group-hover:bg-blue-600 p-1.5 sm:p-2 rounded-full transition-all duration-300 mr-2 sm:mr-3 backdrop-blur-sm">
+                      <i className={`${contact.icon} text-white text-base sm:text-lg w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center`}></i>
                     </div>
-                    <span className="font-mono text-sm md:text-base text-blue-100 group-hover:text-blue-300 transition-colors duration-300">
+                    <span className="font-mono text-xs sm:text-sm md:text-base text-blue-100 group-hover:text-blue-300 transition-colors duration-300 break-all sm:break-normal">
                       {getContactValue(contact.type)}
                     </span>
                   </a>
@@ -197,12 +197,12 @@ const Hero: React.FC<Props> = ({ data }) => {
           </div>
 
           {/* Right Section - Person Image */}
-          <div className="flex justify-center md:justify-end">
+          <div className="flex justify-center md:justify-end mt-6 sm:mt-0">
             <div className="relative">
               {/* Main image with border effect */}
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-blue-400/30 shadow-xl backdrop-blur-sm">
+              <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-blue-400/30 shadow-xl backdrop-blur-sm">
                 <img 
-                  src="assets/profile-image.png" 
+                  src={`${process.env.PUBLIC_URL}/assets/profile-image.png`}
                   alt="Professional portrait" 
                   className="w-full h-full object-cover"
                 />
