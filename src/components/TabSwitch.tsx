@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CVData } from "../types";
-import Biography from "./BiographyTab";
+import ExperienceTab from "./ExperienceTab";
 import SkillsTab from "./SkillsTab";
 import EducationTab from "./EducationTab";
 
@@ -9,21 +9,21 @@ interface Props {
 }
 
 const TabSwitch: React.FC<Props> = ({ data }) => {
-  const [activeTab, setActiveTab] = useState<string>("biography");
+  const [activeTab, setActiveTab] = useState<string>("experience");
 
   return (
     <div className="w-full max-w-6xl mx-auto px-3 sm:px-4 md:px-8 py-8 sm:py-12">
       {/* Tab buttons */}
       <div className="flex flex-col sm:flex-row items-center justify-center mb-8 space-y-2 sm:space-y-0 sm:space-x-4">
         <button
-          onClick={() => setActiveTab("biography")}
+          onClick={() => setActiveTab("experience")}
           className={`w-full sm:w-auto px-4 py-2 text-xs sm:text-sm md:text-base rounded-full transition-all duration-300 ${
-            activeTab === "biography"
+            activeTab === "experience"
               ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30"
               : "bg-gray-200/10 text-gray-400 hover:bg-gray-200/20"
           }`}
         >
-          Biography
+          Experience
         </button>
         <button
           onClick={() => setActiveTab("skills")}
@@ -51,9 +51,9 @@ const TabSwitch: React.FC<Props> = ({ data }) => {
       <div className="min-h-[400px] sm:min-h-[500px]">
         {/* Tab content */}
         <div className={`transition-opacity duration-300 ${
-          activeTab === "biography" ? "opacity-100" : "opacity-0 hidden"
+          activeTab === "experience" ? "opacity-100" : "opacity-0 hidden"
         }`}>
-          <Biography data={data} />
+          <ExperienceTab data={data} />
         </div>
         <div className={`transition-opacity duration-300 ${
           activeTab === "skills" ? "opacity-100" : "opacity-0 hidden"

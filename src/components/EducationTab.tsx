@@ -32,7 +32,7 @@ const EducationTab: React.FC<Props> = ({ data }) => {
                 <img 
                   src={`assets/education-logos/${edu.logo}`} 
                   alt={`${edu.school} logo`}
-                  className="w-16 h-16 rounded-lg object-contain bg-white p-1"
+                  className="w-16 h-16 rounded-lg object-contain p-1"
                   onError={(e) => {
                     // Fallback to first letter if image fails to load
                     const target = e.target as HTMLImageElement;

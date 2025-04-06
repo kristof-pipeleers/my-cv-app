@@ -26,6 +26,16 @@ export interface ContactIcon {
   type: 'email' | 'phone' | 'address' | 'other';
 }
 
+export interface Experience {
+  title: string;
+  period: string;
+  organization: string;
+  logo: string;
+  website?: string;
+  highlights: string[];
+  tags?: string[];
+}
+
 export interface CVData {
   hero: {
     welcome: string;
@@ -52,8 +62,7 @@ export interface CVData {
     years: string;
     logo?: string;
   }[];
-  experience: { company: string; role: string; years: string; description: string }[];
-  skills: string[];
+  experience: Experience[];
   languages: Language[];
   hobbies: string[];
   qualities: Quality[];

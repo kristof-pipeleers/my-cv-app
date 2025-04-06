@@ -74,32 +74,58 @@ export const cvData: CVData = {
       school: "Postgraduate Programme in Innovation & Entrepreneurship in Engineering", 
       degree: "Postgraduate Programme in Innovation & Entrepreneurship in Engineering", 
       years: "2023 - 2024",
-      logo: "postgrad-logo.jpg"
+      logo: "postgrad-logo.png"
     },
     { 
       school: "KU Leuven Campus Groep T", 
       degree: "Master's Degree, Internet Computing", 
       years: "2022 - 2023",
-      logo: "kuleuven-logo.jpg" 
+      logo: "kuleuven-logo.png" 
     },
     { 
       school: "KU Leuven Campus Groep T", 
       degree: "Master's in Industrial Sciences: Electronics-ICT", 
       years: "2019 - 2023",
-      logo: "kuleuven-logo.jpg" 
+      logo: "kuleuven-logo.png" 
     },
     { 
       school: "Scholen Kindsheid Jesu", 
       degree: "Science & Mathematics", 
       years: "2013 - 2019",
-      logo: "ksj-logo.jpg" 
+      logo: "ksj-logo.png" 
     }
   ],
   experience: [
-    { company: "Bpost Masspost Hypercentra Hasselt", role: "Postbode - Jobstudent", years: "2018 - 2022", description: "Bezorging van post en kranten" },
-    { company: "Werecircle", role: "Innovatie Stage", years: "2023 - heden", description: "Onderzoek naar OpenAI, LangChain en AI-tools" },
+    {
+      title: "Innovation Internship",
+      period: "2023 – 2024",
+      organization: "werecircle",
+      logo: "werecircle-logo.png",
+      website: "https://www.werecircle.be",
+      highlights: [
+        "Conducted experiments in web scraping and generative AI.",
+        "Explored Microsoft Azure tools including ML Studio (Prompt Flows) and AI Studio.",
+        "Built and tested chatbots using OpenAI, Langchain, LlamaIndex, and other frameworks.",
+        "Participated in the Microsoft OpenAI Hackathon.",
+        "Contributed independently and proactively to a start-up environment as part of the SOCS (Sustainability Open Source Center for Knowledge and Support) project."
+      ],
+      tags: ["Web Scraping", "Generative AI", "Microsoft Azure", "Start-up"]
+    },
+    {
+      title: "Data Engineering, Cloud Solutions & Analytics",
+      period: "2024 – 2025",
+      organization: "Sparkle NV",
+      logo: "sparkle-logo.png",
+      website: "https://www.sparkle.consulting",
+      highlights: [
+        "Designed scalable data pipelines and orchestrated workflows using Microsoft Fabric, dbt, and medallion architecture.",
+        "Implemented cloud-based data solutions using Microsoft Azure.",
+        "Transformed raw data into actionable insights using advanced analytics techniques.",
+        "Built interactive dashboards with Power BI to support data-driven decision-making."
+      ],
+      tags: ["Data Engineering", "Cloud Solutions", "Analytics", "Microsoft Azure", "Power BI"]
+    }
   ],
-  skills: ["Java", "C / C++", "Python", "Assembly", "SQL", "HTML/CSS", "JavaScript"],
   languages: [
     {
       name: "Nederlands",
