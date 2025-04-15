@@ -53,7 +53,9 @@ const Hero: React.FC<Props> = ({ data }) => {
   };
 
   return (
-    <div className="relative w-full bg-gradient-to-b from-[#1A1A2E] via-[#16213E] to-[#0F172A] text-white py-12 sm:py-20 overflow-visible">
+    <div className="relative w-full bg-gradient-to-b from-gray-50 via-gray-100 via-gray-200 to-gray-100 
+      dark:from-[#1A1A2E] dark:via-[#16213E] dark:via-[#0F172A] dark:to-[#16213E] 
+      text-gray-900 dark:text-white py-20 overflow-visible transition-colors duration-300">
       {/* Particles background - extended height to overlap with WhatIDo section */}
       {init && <Particles
         id="tsparticles"
@@ -73,17 +75,20 @@ const Hero: React.FC<Props> = ({ data }) => {
               },
             },
             color: {
-              value: "#ffffff",
+              value: ["#4B5563", "#6B7280"],
+              animation: {
+                enable: false,
+              },
             },
             opacity: {
-              value: 0.5,
+              value: { min: 0.3, max: 0.7 },
               animation: {
                 enable: true,
                 speed: 1,
               },
             },
             size: {
-              value: 3,
+              value: 2,
               animation: {
                 enable: true,
                 speed: 4,
@@ -102,8 +107,8 @@ const Hero: React.FC<Props> = ({ data }) => {
             links: {
               enable: true,
               distance: 150,
-              color: "#ffffff",
-              opacity: 0.4,
+              color: "#4B5563",
+              opacity: 0.3,
               width: 1,
             },
           },
@@ -130,14 +135,14 @@ const Hero: React.FC<Props> = ({ data }) => {
           },
           retina_detect: true,
         }}
-        className="absolute inset-0 h-[calc(100%+10rem)] z-0"
+        className="absolute inset-0 h-[calc(100%+20rem)] z-0"
       />}
 
-      {/* Background gradient blobs */}
-      <div className="absolute inset-0 opacity-10 z-0">
-        <div className="absolute top-20 left-10 w-40 h-40 rounded-full bg-blue-400 blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-60 h-60 rounded-full bg-indigo-500 blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-purple-500 blur-3xl opacity-20"></div>
+      {/* Background gradient blobs - adjusted for light theme */}
+      <div className="absolute inset-0 opacity-10 dark:opacity-10 z-0">
+        <div className="absolute top-20 left-10 w-40 h-40 rounded-full bg-blue-400 dark:bg-blue-400 blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-60 h-60 rounded-full bg-indigo-500 dark:bg-indigo-500 blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-purple-500 dark:bg-purple-500 blur-3xl opacity-20"></div>
       </div>
       
       <div className="relative max-w-6xl mx-auto px-3 sm:px-4 md:px-8 z-20">
@@ -145,11 +150,15 @@ const Hero: React.FC<Props> = ({ data }) => {
           {/* Left Section - Text Content */}
           <div className="space-y-4 sm:space-y-6">
             <div className="animate-fade-in">
-              <p className="text-blue-300 text-base sm:text-lg font-medium mb-2">{data.hero.welcome}</p>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">
-                Hi I am <span className="text-blue-400">{data.hero.name}</span>
+              <p className="text-blue-600 dark:text-blue-300 text-base sm:text-lg font-medium mb-2">
+                {data.hero.welcome}
+              </p>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-gray-900 dark:text-white">
+                Hi I am <span className="text-blue-600 dark:text-blue-400">{data.hero.name}</span>
               </h1>
-              <h2 className="text-xl sm:text-2xl md:text-3xl text-blue-200 mb-4">{data.hero.role}</h2>
+              <h2 className="text-xl sm:text-2xl md:text-3xl text-blue-600 dark:text-blue-200 mb-4">
+                {data.hero.role}
+              </h2>
               
               {/* Social Media Icons */}
               <div className="flex flex-wrap gap-3 sm:gap-4 mb-6 sm:mb-8">
@@ -168,13 +177,15 @@ const Hero: React.FC<Props> = ({ data }) => {
               </div>
             </div>
             
-            <p className="text-base sm:text-lg text-blue-100 leading-relaxed mb-6 sm:mb-8">
+            <p className="text-base sm:text-lg text-gray-700 dark:text-blue-100 leading-relaxed mb-6 sm:mb-8">
               {data.hero.description}
             </p>
             
             {/* Contact Block */}
             <div className="space-y-3 sm:space-y-4">
-              <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">CONTACT</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
+                CONTACT
+              </h3>
               <div className="space-y-2 sm:space-y-3">
                 {data.contactIcons.map((contact, index) => (
                   <a 
@@ -182,12 +193,12 @@ const Hero: React.FC<Props> = ({ data }) => {
                     href={getContactUrl(contact.type, getContactValue(contact.type))}
                     target={contact.type === 'address' ? '_blank' : undefined}
                     rel={contact.type === 'address' ? 'noopener noreferrer' : undefined}
-                    className="flex items-center group hover:text-blue-400 transition-colors duration-300"
+                    className="flex items-center group hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
                   >
-                    <div className="bg-blue-700/50 group-hover:bg-blue-600 p-1.5 sm:p-2 rounded-full transition-all duration-300 mr-2 sm:mr-3 backdrop-blur-sm">
-                      <i className={`${contact.icon} text-white text-base sm:text-lg w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center`}></i>
+                    <div className="bg-blue-100 dark:bg-blue-700/50 group-hover:bg-blue-200 dark:group-hover:bg-blue-600 p-1.5 sm:p-2 rounded-full transition-all duration-300 mr-2 sm:mr-3">
+                      <i className={`${contact.icon} text-blue-600 dark:text-white text-base sm:text-lg w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center`}></i>
                     </div>
-                    <span className="font-mono text-xs sm:text-sm md:text-base text-blue-100 group-hover:text-blue-300 transition-colors duration-300 break-all sm:break-normal">
+                    <span className="font-mono text-xs sm:text-sm md:text-base text-gray-700 dark:text-blue-100 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors duration-300 break-all sm:break-normal">
                       {getContactValue(contact.type)}
                     </span>
                   </a>

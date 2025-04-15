@@ -30,7 +30,7 @@ const EducationTab: React.FC<Props> = ({ data }) => {
             <div className="mb-4 sm:mb-0 sm:mr-6 flex-shrink-0">
               {edu.logo ? (
                 <img 
-                  src={`assets/education-logos/${edu.logo}`} 
+                  src={`${process.env.PUBLIC_URL}/assets/education-logos/${edu.logo}`} 
                   alt={`${edu.school} logo`}
                   className="w-16 h-16 rounded-lg object-contain p-1"
                   onError={(e) => {
@@ -66,7 +66,7 @@ const EducationTab: React.FC<Props> = ({ data }) => {
             </div>
               
               {/* Expanded content */}
-              <div className={`mt-4 text-blue-100 transition-all duration-300 overflow-hidden ${
+              <div className={`mt-4 text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed transition-all duration-300 overflow-hidden ${
                 expandedEducation === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
               }`}>
                 <p>

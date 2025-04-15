@@ -19,8 +19,8 @@ const TabSwitch: React.FC<Props> = ({ data }) => {
           onClick={() => setActiveTab("experience")}
           className={`w-full sm:w-auto px-4 py-2 text-xs sm:text-sm md:text-base rounded-full transition-all duration-300 ${
             activeTab === "experience"
-              ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30"
-              : "bg-gray-200/10 text-gray-400 hover:bg-gray-200/20"
+              ? "bg-blue-600 dark:bg-blue-500 text-white shadow-lg shadow-blue-500/30"
+              : "bg-gray-200 dark:bg-gray-200/10 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-200/20"
           }`}
         >
           Experience
@@ -29,8 +29,8 @@ const TabSwitch: React.FC<Props> = ({ data }) => {
           onClick={() => setActiveTab("skills")}
           className={`w-full sm:w-auto px-4 py-2 text-xs sm:text-sm md:text-base rounded-full transition-all duration-300 ${
             activeTab === "skills"
-              ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30"
-              : "bg-gray-200/10 text-gray-400 hover:bg-gray-200/20"
+              ? "bg-blue-600 dark:bg-blue-500 text-white shadow-lg shadow-blue-500/30"
+              : "bg-gray-200 dark:bg-gray-200/10 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-200/20"
           }`}
         >
           Skills
@@ -39,8 +39,8 @@ const TabSwitch: React.FC<Props> = ({ data }) => {
           onClick={() => setActiveTab("education")}
           className={`w-full sm:w-auto px-4 py-2 text-xs sm:text-sm md:text-base rounded-full transition-all duration-300 ${
             activeTab === "education"
-              ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30"
-              : "bg-gray-200/10 text-gray-400 hover:bg-gray-200/20"
+              ? "bg-blue-600 dark:bg-blue-500 text-white shadow-lg shadow-blue-500/30"
+              : "bg-gray-200 dark:bg-gray-200/10 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-200/20"
           }`}
         >
           Education

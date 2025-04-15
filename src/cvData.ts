@@ -71,7 +71,7 @@ export const cvData: CVData = {
   ],
   education: [
     { 
-      school: "Postgraduate Programme in Innovation & Entrepreneurship in Engineering", 
+      school: "KU Leuven", 
       degree: "Postgraduate Programme in Innovation & Entrepreneurship in Engineering", 
       years: "2023 - 2024",
       logo: "postgrad-logo.png"
@@ -84,7 +84,7 @@ export const cvData: CVData = {
     },
     { 
       school: "KU Leuven Campus Groep T", 
-      degree: "Master's in Industrial Sciences: Electronics-ICT", 
+      degree: "Bacherlor's in Industrial Sciences: Electronics-ICT", 
       years: "2019 - 2023",
       logo: "kuleuven-logo.png" 
     },

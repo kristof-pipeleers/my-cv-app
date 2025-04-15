@@ -7,37 +7,38 @@ interface Props {
 
 const WhatIDo: React.FC<Props> = ({ data }) => {
   return (
-    <div className="relative w-full bg-gradient-to-b from-[#0F172A] to-[#0B1120] pt-20 pb-20 px-4 -mt-10">
-      {/* Gradient overlay for smooth transition */}
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#0F172A] to-transparent z-0"></div>
-      
-      <div className="relative max-w-6xl mx-auto z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">What I Do</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto mb-6"></div>
-          <p className="text-blue-200 max-w-2xl mx-auto">
-          Areas I explore, work on, and continuously learn about.
-          </p>
-        </div>
+    <div className="relative w-full bg-gradient-to-b from-gray-100 via-gray-50 to-gray-50
+      dark:from-[#16213E] dark:via-[#16213E] dark:to-[#16213E] 
+      py-16 transition-colors duration-300">
+      {/* Optional: Additional gradient overlay for smoother transition */}
+      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-gray-100 to-transparent
+        dark:from-[#16213E] dark:to-transparent opacity-50"></div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="relative max-w-6xl mx-auto px-4 z-10">
+        <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+          What I Do
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {data.services.map((service, index) => (
-            <div 
+            <div
               key={index}
-              className="bg-[#1E293B]/40 backdrop-blur-sm p-8 rounded-xl border border-blue-700/10 
-                         transition-all duration-300 hover:-translate-y-2 
-                         hover:shadow-xl hover:shadow-blue-500/10 hover:border-blue-400/30
-                         group"
+              className="p-6 rounded-xl bg-white/95 dark:bg-white/[0.08] 
+                border border-gray-200/80 dark:border-white/10 
+                hover:shadow-lg hover:shadow-blue-500/10 
+                transition-all duration-300 group"
             >
-              <div className="mb-4">
-                <div className="bg-gradient-to-br from-blue-500 to-indigo-600 w-14 h-14 rounded-lg 
-                                flex items-center justify-center text-white text-2xl mb-6
-                                group-hover:shadow-lg group-hover:shadow-blue-500/30 transition-all duration-300">
-                  <i className={service.icon}></i>
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-500/20 
+                  flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                  <i className={`${service.icon} text-2xl text-blue-600 dark:text-blue-400`}></i>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                  {service.title}
+                </h3>
               </div>
-              <p className="text-blue-200 leading-relaxed">{service.description}</p>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                {service.description}
+              </p>
             </div>
           ))}
         </div>
