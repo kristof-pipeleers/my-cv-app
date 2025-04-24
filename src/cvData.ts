@@ -23,7 +23,7 @@ export const cvData: CVData = {
     { 
       name: "GitHub", 
       icon: "fab fa-github", 
-      url: "https://github.com/kristofpipeleers" 
+      url: "https://github.com/kristof-pipeleers" 
     },
     { 
       name: "Instagram", 
