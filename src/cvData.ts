@@ -9,7 +9,7 @@ export const cvData: CVData = {
   },
   name: "Kristof Pipeleers",
   contact: {
-    birthday: "January 1, 2001",
+    birthday: "January 29, 2001",
     email: "kristof01@live.be",
     phone: "+32 468 12 88 94",
     address: "Zavelvennestraat 121, 3500 Hasselt",
