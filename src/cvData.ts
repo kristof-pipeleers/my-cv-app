@@ -9,6 +9,7 @@ export const cvData: CVData = {
   },
   name: "Kristof Pipeleers",
   contact: {
+    birthday: "January 1, 2001",
     email: "kristof01@live.be",
     phone: "+32 468 12 88 94",
     address: "Zavelvennestraat 121, 3500 Hasselt",
@@ -17,7 +18,7 @@ export const cvData: CVData = {
     { 
       name: "LinkedIn", 
       icon: "fab fa-linkedin", 
-      url: "https://linkedin.com/in/kristof-pipeleers" 
+      url: "https://linkedin.com/in/kristof-pipeleers/" 
     },
     { 
       name: "GitHub", 
@@ -25,14 +26,9 @@ export const cvData: CVData = {
       url: "https://github.com/kristofpipeleers" 
     },
     { 
-      name: "Twitter", 
-      icon: "fab fa-twitter", 
-      url: "https://twitter.com/kristofpip" 
-    },
-    { 
       name: "Instagram", 
       icon: "fab fa-instagram", 
-      url: "https://instagram.com/kristofpip" 
+      url: "https://instagram.com/kristofpipeleers" 
     }
   ],
   contactIcons: [
@@ -50,13 +46,18 @@ export const cvData: CVData = {
       name: "Address",
       icon: "fas fa-map-marker-alt",
       type: "address"
+    },
+    { 
+      name: "Birthday",
+      icon: "fas fa-birthday-cake",
+      type: "birthday"
     }
   ],
   services: [
     {
       "title": "Data Engineering & Cloud Solutions",
       "icon": "fas fa-database",
-      "description": "Designing scalable data pipelines and orchestrating workflows using Microsoft Fabric, dbt, and medallion architecture. Leveraging Microsoft Azure for cloud-based data solutions."
+      "description": "Building end-to-end data solutions with Microsoft Fabric and Azure. Creating reliable data pipelines from raw data to insights, using dbt to transform and organize data following medallion architecture principles."
     },
     {
       "title": "Data Analytics & Visualization",
@@ -74,25 +75,29 @@ export const cvData: CVData = {
       school: "KU Leuven", 
       degree: "Postgraduate Programme in Innovation & Entrepreneurship in Engineering", 
       years: "2023 - 2024",
-      logo: "postgrad-logo.png"
+      logo: "postgrad-logo.png",
+      description: "Specialized program focusing on innovation management, business development, and entrepreneurial skills in engineering contexts."
     },
     { 
       school: "KU Leuven Campus Groep T", 
-      degree: "Master's Degree, Internet Computing", 
+      degree: "Master's in Industrial Sciences: Internet Computing", 
       years: "2022 - 2023",
-      logo: "kuleuven-logo.png" 
+      logo: "kuleuven-logo.png",
+      description: "Advanced studies in cloud computing, distributed systems, and web technologies, with a master's thesis focused on a machine learning topic."
     },
     { 
       school: "KU Leuven Campus Groep T", 
       degree: "Bacherlor's in Industrial Sciences: Electronics-ICT", 
       years: "2019 - 2023",
-      logo: "kuleuven-logo.png" 
+      logo: "kuleuven-logo.png",
+      description: "Foundation in electronics and information technology, covering programming, networking, and system design. Gained practical experience through hands-on (team) projects and laboratory work."
     },
     { 
       school: "Scholen Kindsheid Jesu", 
       degree: "Science & Mathematics", 
       years: "2013 - 2019",
-      logo: "ksj-logo.png" 
+      logo: "ksj-logo.png",
+      description: "Proper foundation in mathematics, sciences, and analytical thinking."
     }
   ],
   experience: [
@@ -107,9 +112,9 @@ export const cvData: CVData = {
         "Explored Microsoft Azure tools including ML Studio (Prompt Flows) and AI Studio.",
         "Built and tested chatbots using OpenAI, Langchain, LlamaIndex, and other frameworks.",
         "Participated in the Microsoft OpenAI Hackathon.",
-        "Contributed independently and proactively to a start-up environment as part of the SOCS (Sustainability Open Source Center for Knowledge and Support) project."
+        "Contributed independently and proactively to a start-up environment."
       ],
-      tags: ["Web Scraping", "Generative AI", "Microsoft Azure", "Start-up"]
+      tags: ["Web Scraping", "Gen AI", "Microsoft Azure", "Start-up"]
     },
     {
       title: "Data Engineering, Cloud Solutions & Analytics",
@@ -123,32 +128,32 @@ export const cvData: CVData = {
         "Transformed raw data into actionable insights using advanced analytics techniques.",
         "Built interactive dashboards with Power BI to support data-driven decision-making."
       ],
-      tags: ["Data Engineering", "Cloud Solutions", "Analytics", "Microsoft Azure", "Power BI"]
+      tags: ["Data Engineering", "Cloud Solutions", "Analytics", "Microsoft Fabric", "Power BI"]
     }
   ],
   languages: [
     {
-      name: "Nederlands",
+      name: "Dutch",
       level: { nl: "Moedertaal", en: "Native" },
       proficiency: 100
     },
     {
-      name: "Engels",
+      name: "English",
       level: { nl: "Vloeiend", en: "Fluent" },
-      proficiency: 90
+      proficiency: 85
     },
     {
-      name: "Frans",
+      name: "French",
       level: { nl: "Matig", en: "Intermediate" },
-      proficiency: 60
+      proficiency: 40
     },
     {
-      name: "Duits",
+      name: "Spanish",
       level: { nl: "Matig", en: "Intermediate" },
-      proficiency: 50
+      proficiency: 10
     }
   ],
-  hobbies: ["Tennis", "Zaalvoetbal", "Drum", "Instrumentaal slagwerk"],
+  hobbies: ["Tennis", "Indoor Football", "Drums", "Percussion"],
   qualities: [
     {
       id: "planning",
@@ -160,7 +165,7 @@ export const cvData: CVData = {
       id: "perseverance", 
       title: "PERSEVERANCE",
       icon: "fas fa-fist-raised",
-      description: "When I start something, I strive for the best possible outcome. I don't like giving up - whether in professional work or personal hobbies like tennis or music."
+      description: "I aim for the best outcome in everything I start, whether it's work or hobbies like tennis or music. I value consistency and clarity, especially in writing queries or building pipelines, where clean code shows care and professionalism."
     },
     {
       id: "teamwork",
@@ -171,8 +176,8 @@ export const cvData: CVData = {
     {
       id: "diligence",
       title: "DILIGENCE",
-      icon: "fas fa-fire", 
-      description: "When interested in a topic, I commit 100%. I find fulfillment in continuous learning and seeing my professional growth."
+      icon: "fas fa-book-open", 
+      description: "When I'm curious about something, I dive in fully. I enjoy learning, growing professionally, and staying up to date with new technologies through events and meetups."
     }
   ]
 }; 

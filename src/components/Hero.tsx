@@ -33,6 +33,8 @@ const Hero: React.FC<Props> = ({ data }) => {
         return `tel:${value.replace(/\s/g, '')}`;
       case 'address':
         return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(value)}`;
+      case 'birthday':
+        return '#'; // Birthday doesn't need a URL
       default:
         return value;
     }
@@ -47,6 +49,8 @@ const Hero: React.FC<Props> = ({ data }) => {
         return data.contact.phone;
       case 'address':
         return data.contact.address;
+      case 'birthday':
+        return data.contact.birthday;
       default:
         return '';
     }

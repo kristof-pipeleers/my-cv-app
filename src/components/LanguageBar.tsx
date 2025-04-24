@@ -16,7 +16,6 @@ const LanguageBar: React.FC<Props> = ({ language }) => {
     >
       <div className="flex justify-between mb-1">
         <span className="text-sm font-medium text-blue-300">{language.name}</span>
-        <span className="text-sm font-medium text-blue-300">{language.proficiency}%</span>
       </div>
       <div className="w-full h-2 bg-gray-700 rounded-full">
         <div

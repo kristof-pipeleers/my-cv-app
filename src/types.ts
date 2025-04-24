@@ -23,7 +23,7 @@ export interface SocialIcon {
 export interface ContactIcon {
   name: string;
   icon: string;
-  type: 'email' | 'phone' | 'address' | 'other';
+  type: 'email' | 'phone' | 'address' | 'birthday' | 'other';
 }
 
 export interface Experience {
@@ -48,6 +48,7 @@ export interface CVData {
     email: string;
     phone: string;
     address: string;
+    birthday: string;
   };
   socialIcons: SocialIcon[];
   contactIcons: ContactIcon[];
@@ -61,6 +62,7 @@ export interface CVData {
     degree: string; 
     years: string;
     logo?: string;
+    description?: string;
   }[];
   experience: Experience[];
   languages: Language[];
