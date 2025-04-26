@@ -14,7 +14,7 @@ const App: React.FC = () => {
         <Hero data={cvData} />
         <WhatIDo data={cvData} />
         <TabSwitch data={cvData} />
-      </div>
+    </div>
     </ThemeProvider>
   );
 };
