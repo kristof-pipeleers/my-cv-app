@@ -1,23 +1,33 @@
-import React from 'react';
-import { useTheme } from '../context/ThemeContext';
+import { useEffect, useState } from "react";
+import { Moon, Sun } from "lucide-react";
 
-const ThemeToggle: React.FC = () => {
-  const { theme, toggleTheme } = useTheme();
+// The initial class is set by an inline script in index.html to avoid a flash.
+export default function ThemeToggle() {
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    setDark(document.documentElement.classList.contains("dark"));
+  }, []);
+
+  const toggle = () => {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.classList.toggle("dark", next);
+    try {
+      localStorage.setItem("theme", next ? "dark" : "light");
+    } catch {
+      /* storage unavailable — theme still applies for this visit */
+    }
+  };
 
   return (
     <button
-      onClick={toggleTheme}
-      className="fixed top-4 right-4 z-50 p-2 rounded-full bg-blue-600/20 backdrop-blur-sm 
-                hover:bg-blue-600/30 transition-all duration-300 group"
-      aria-label="Toggle theme"
+      type="button"
+      onClick={toggle}
+      aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
+      className="grid size-10 place-items-center rounded-full border border-line text-muted transition-colors hover:border-ink hover:text-ink"
     >
-      {theme === 'dark' ? (
-        <i className="fas fa-sun text-yellow-400 group-hover:rotate-45 transition-transform duration-300" />
-      ) : (
-        <i className="fas fa-moon text-blue-300 group-hover:-rotate-12 transition-transform duration-300" />
-      )}
+      {dark ? <Sun className="size-4" /> : <Moon className="size-4" />}
     </button>
   );
-};
-
-export default ThemeToggle; 
+}

@@ -1,0 +1,266 @@
+/* Print stylesheet for the one-page A4 CV. Colors come from the shared site tokens. */
+@import "../styles/tokens.css";
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: #e7e5e0;
+}
+
+body {
+  font-family: "Inter Variable", system-ui, sans-serif;
+  color: var(--ink);
+  font-size: 8.4pt;
+  line-height: 1.36;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.page {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  margin: 0 auto;
+  padding: 12mm 14mm 15mm;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+@media screen {
+  .page {
+    margin: 24px auto;
+    box-shadow: 0 10px 40px rgb(15 23 42 / 0.12);
+  }
+}
+
+/* Header */
+.r-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 10mm;
+  padding-bottom: 5mm;
+  border-bottom: 1.5px solid var(--ink);
+}
+
+.r-name {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: 34pt;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.r-role {
+  margin-top: 2.5mm;
+  font-size: 11pt;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.r-summary {
+  margin-top: 2mm;
+  max-width: 108mm;
+  color: var(--muted);
+  font-size: 8.8pt;
+}
+
+.r-contact {
+  text-align: right;
+  font-size: 8.2pt;
+  line-height: 1.6;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.r-contact a {
+  color: var(--accent);
+}
+
+/* Body grid */
+.r-body {
+  display: grid;
+  grid-template-columns: 1.72fr 1fr;
+  gap: 9mm;
+  margin-top: 5.5mm;
+}
+
+aside {
+  border-left: 1px solid var(--line);
+  padding-left: 6mm;
+}
+
+.r-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 2.2mm;
+  margin: 4.6mm 0 2.4mm;
+  padding-bottom: 1.2mm;
+  border-bottom: 1px solid var(--line);
+  font-size: 7.4pt;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--subtle);
+}
+
+main > .r-heading:first-child,
+aside > .r-heading:first-child {
+  margin-top: 0;
+}
+
+.r-num {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Items */
+.r-item + .r-item {
+  margin-top: 3mm;
+}
+
+.r-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4mm;
+}
+
+.r-title {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: 13.5pt;
+  line-height: 1.1;
+}
+
+.r-edu .r-title {
+  font-size: 11.5pt;
+}
+
+.r-period {
+  flex-shrink: 0;
+  font-size: 7.8pt;
+  font-weight: 500;
+  color: var(--subtle);
+  font-variant-numeric: tabular-nums;
+}
+
+.r-org {
+  margin-top: 0.6mm;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.r-bullets {
+  margin-top: 1.6mm;
+  color: var(--muted);
+}
+
+.r-bullets li {
+  position: relative;
+  padding-left: 4.5mm;
+}
+
+.r-bullets li + li {
+  margin-top: 0.9mm;
+}
+
+.r-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.68em;
+  width: 2.6mm;
+  height: 1px;
+  background: var(--accent);
+}
+
+.r-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2mm;
+  margin-top: 2.2mm;
+}
+
+.r-tags li {
+  padding: 0.4mm 2.2mm;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  font-size: 7pt;
+  color: var(--muted);
+}
+
+.r-tags-solid {
+  margin-top: 0;
+}
+
+.r-tags-solid li {
+  border-color: transparent;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.r-block + .r-block {
+  margin-top: 2.2mm;
+}
+
+.r-subtitle {
+  font-size: 8.4pt;
+  font-weight: 600;
+}
+
+.r-desc {
+  margin-top: 0.5mm;
+  font-size: 7.9pt;
+  color: var(--muted);
+}
+
+.r-lang + .r-lang {
+  margin-top: 1.8mm;
+}
+
+.r-bar {
+  margin-top: 1mm;
+  height: 1px;
+  background: var(--line);
+}
+
+.r-bar span {
+  display: block;
+  height: 2.5px;
+  transform: translateY(-0.75px);
+  border-radius: 99px;
+  background: var(--accent);
+}
+
+.r-footer {
+  position: absolute;
+  left: 14mm;
+  right: 14mm;
+  bottom: 8mm;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2mm;
+  border-top: 1px solid var(--line);
+  font-size: 7pt;
+  color: var(--subtle);
+  letter-spacing: 0.04em;
+}

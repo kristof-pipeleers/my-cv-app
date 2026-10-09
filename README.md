@@ -1,46 +1,29 @@
-# Getting Started with Create React App
+# kristofpipeleers.be
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Personal CV website and matching PDF, both generated from a single content file.
 
-## Available Scripts
+| Environment | Branch    | URL                                |
+| ----------- | --------- | ---------------------------------- |
+| Production  | `master`  | https://kristofpipeleers.be        |
+| Development | `develop` | https://kristofpipeleers.be/dev/   |
 
-In the project directory, you can run:
+## Quick start
 
-### `npm start`
+```bash
+npm install
+npx playwright install chromium   # once, for PDF generation
+npm run dev                       # http://localhost:5173  (CV page: /resume.html)
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Updating the CV
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Edit `src/content/cv.ts`. It holds all content for both the site and the PDF.
+2. Run `npm run pdf` to regenerate `public/Kristof_Pipeleers_CV.pdf`. The script fails if the CV no longer fits on one page.
+3. Commit to `develop` and push, then check https://kristofpipeleers.be/dev/.
+4. Merge `develop` into `master` to go live.
 
-### `npm test`
+With Claude Code you can just say *"update my CV: I started a new project at …"*. The `update-cv` skill handles steps 1–3.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Stack
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+React 19, Vite, Tailwind CSS v4, TypeScript, Playwright (PDF), GitHub Actions and GitHub Pages.

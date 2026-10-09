@@ -1,22 +1,41 @@
-import React from "react";
-import { cvData } from "./cvData";
+import Approach from "./components/Approach";
+import Contact from "./components/Contact";
+import Education from "./components/Education";
+import Experience from "./components/Experience";
+import Expertise from "./components/Expertise";
+import Footer from "./components/Footer";
 import Hero from "./components/Hero";
-import WhatIDo from "./components/WhatIDo";
-import TabSwitch from "./components/TabSwitch";
-import { ThemeProvider } from './context/ThemeContext';
-import ThemeToggle from './components/ThemeToggle';
+import Nav from "./components/Nav";
+import Toolbox from "./components/Toolbox";
+import { useReveal } from "./lib/reveal";
 
-const App: React.FC = () => {
+export default function App() {
+  useReveal();
+
   return (
-    <ThemeProvider>
-      <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200 dark:from-[#1A1A2E] dark:via-[#16213E] dark:to-[#0F172A] transition-colors duration-300">
-        <ThemeToggle />
-        <Hero data={cvData} />
-        <WhatIDo data={cvData} />
-        <TabSwitch data={cvData} />
-    </div>
-    </ThemeProvider>
+    <>
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-bg"
+      >
+        Skip to content
+      </a>
+      <Nav />
+      <main id="main">
+        <Hero />
+        <Toolbox />
+        <Expertise />
+        <Experience />
+        <Education />
+        <Approach />
+      </main>
+      <Contact />
+      <Footer />
+      {import.meta.env.MODE === "dev" && (
+        <div className="fixed bottom-4 left-4 z-50 rounded-full bg-amber-400 px-3 py-1 text-xs font-bold tracking-wider text-black shadow-lg">
+          DEV PREVIEW
+        </div>
+      )}
+    </>
   );
-};
-
-export default App;
+}

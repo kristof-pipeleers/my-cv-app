@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /dev/
+Disallow: /resume.html
+
+Sitemap: https://kristofpipeleers.be/sitemap.xml
