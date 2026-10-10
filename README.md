@@ -27,3 +27,9 @@ With Claude Code you can just say *"update my CV: I started a new project at …
 ## Stack
 
 React 19, Vite, Tailwind CSS v4, TypeScript, Playwright (PDF), GitHub Actions and GitHub Pages.
+
+## Architecture
+
+![How kristofpipeleers.be ships](docs/architecture.png)
+
+Editable source: [`docs/architecture.drawio`](docs/architecture.drawio). Open it in draw.io or the VS Code Draw.io extension.
