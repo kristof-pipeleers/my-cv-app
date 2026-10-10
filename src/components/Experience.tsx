@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { cv } from "../content/cv";
-import { asset, formatPeriod } from "../content/format";
+import { asset, formatJobPeriod } from "../content/format";
 import Section from "./Section";
 
 export default function Experience() {
@@ -16,8 +16,13 @@ export default function Experience() {
                 className="h-12 w-24 rounded-xl bg-white object-contain px-2.5 py-1.5 ring-1 ring-line"
               />
               <div>
-                <p className="text-sm font-medium tabular-nums">{formatPeriod(job.start, job.end)}</p>
-                {job.end === null && (
+                <p className="text-sm font-medium tabular-nums">{formatJobPeriod(job)}</p>
+                {"upcoming" in job ? (
+                  <p className="mt-1 inline-flex items-center gap-1.5 text-xs text-accent">
+                    <span className="size-1.5 rounded-full bg-accent" aria-hidden="true" />
+                    Upcoming
+                  </p>
+                ) : job.end === null && (
                   <p className="mt-1 inline-flex items-center gap-1.5 text-xs text-accent">
                     <span className="size-1.5 animate-pulse rounded-full bg-accent" aria-hidden="true" />
                     Current role

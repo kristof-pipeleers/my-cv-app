@@ -34,6 +34,14 @@ export interface Social {
   onResume?: boolean;
 }
 
+export interface StackItem {
+  name: string;
+  /** Key in src/content/logos.ts; without one the card shows a monogram. */
+  logo?: string;
+  /** Part of the upcoming role's stack: shows a "Next" marker. */
+  next?: boolean;
+}
+
 export interface Service {
   title: string;
   icon: ServiceIcon;
@@ -48,7 +56,11 @@ export interface Experience {
   website?: string;
   logo: string;
   start: number;
+  /** e.g. "November": shown for upcoming roles. */
+  startMonth?: string;
   end: number | null;
+  /** Signed but not started: shown as "Starting <month> <year>", not as the current role. */
+  upcoming?: boolean;
   highlights: string[];
   tags: string[];
 }
@@ -82,7 +94,7 @@ export interface Language {
 export interface CV {
   person: Person;
   socials: Social[];
-  toolbox: string[];
+  stack: StackItem[];
   services: Service[];
   experience: Experience[];
   education: Education[];

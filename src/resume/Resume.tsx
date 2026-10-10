@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { cv } from "../content/cv";
-import { formatPeriod, lastUpdated } from "../content/format";
+import { formatJobPeriod, formatPeriod, lastUpdated } from "../content/format";
 
 function Heading({ number, children }: { number: string; children: ReactNode }) {
   return (
@@ -51,7 +51,7 @@ export default function Resume() {
             <article key={job.id} className="r-item">
               <div className="r-row">
                 <h3 className="r-title">{job.role}</h3>
-                <span className="r-period">{formatPeriod(job.start, job.end)}</span>
+                <span className="r-period">{formatJobPeriod(job)}</span>
               </div>
               <p className="r-org">{job.organization}</p>
               <ul className="r-bullets">
@@ -75,7 +75,6 @@ export default function Resume() {
                 <span className="r-period">{formatPeriod(edu.start, edu.end)}</span>
               </div>
               <p className="r-org">{edu.school}</p>
-              {edu.description && <p className="r-desc">{edu.description}</p>}
             </article>
           ))}
         </main>

@@ -6,7 +6,7 @@ export const cv = {
     role: "Data Analytics Engineer",
     headline: "Data platforms people and AI agents can *trust*.",
     summary:
-      "I turn business knowledge into simple, reliable data models on Microsoft Fabric and dbt, and bring AI agents into the data platform in a secure, reviewable way.",
+      "I turn business knowledge into simple, reliable data models, and bring AI agents into the data platform in a secure, reviewable way.",
     location: "Madrid, Spain",
     email: "kristof01@live.be",
     phone: "+32 468 12 88 94",
@@ -20,7 +20,25 @@ export const cv = {
     { id: "instagram", label: "Instagram", url: "https://instagram.com/kristofpipeleers" },
   ],
 
-  toolbox: ["Microsoft Fabric", "dbt", "Power BI", "SQL", "Python", "Data Vault", "Azure DevOps & CI/CD", "Fabric IQ", "Claude Code"],
+  // Tools I have worked with; shown as the moving logo corridor on the website.
+  stack: [
+    { name: "Microsoft Fabric", logo: "fabric" },
+    { name: "dbt", logo: "dbt" },
+    { name: "BigQuery", logo: "bigquery", next: true },
+    { name: "Power BI", logo: "power-bi" },
+    { name: "Claude Code", logo: "claude-code" },
+    { name: "Airflow", logo: "airflow", next: true },
+    { name: "Azure", logo: "azure" },
+    { name: "Python", logo: "python" },
+    { name: "Google Cloud", logo: "google-cloud", next: true },
+    { name: "Azure DevOps", logo: "azure-devops" },
+    { name: "PostgreSQL", logo: "postgresql" },
+    { name: "Sigma", logo: "sigma", next: true },
+    { name: "SAP", logo: "sap" },
+    { name: "Git", logo: "git" },
+    { name: "OpenAI", logo: "openai" },
+    { name: "LangChain", logo: "langchain" },
+  ],
 
   services: [
     {
@@ -48,6 +66,23 @@ export const cv = {
 
   // Most recent first.
   experience: [
+    {
+      // TODO(Nov 2026): remove `upcoming` + `startMonth` here and set Sparkle `end: 2026`.
+      id: "ebury",
+      role: "Analytics Engineer",
+      organization: "Ebury",
+      website: "https://ebury.com",
+      logo: "ebury-logo.png",
+      start: 2026,
+      startMonth: "November",
+      end: null,
+      upcoming: true,
+      highlights: [
+        "Joining a fast-growing fintech for cross-border payments, FX and hedging, to own the data models of a core product domain.",
+        "Bringing my Fabric and dbt experience to a Google Cloud stack: dbt, BigQuery and Airflow, with Sigma for BI.",
+      ],
+      tags: ["dbt", "BigQuery", "Airflow", "Sigma", "Fintech"],
+    },
     {
       id: "sparkle",
       role: "Data Analytics Engineer",

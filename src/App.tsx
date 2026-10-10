@@ -6,7 +6,7 @@ import Expertise from "./components/Expertise";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Nav from "./components/Nav";
-import Toolbox from "./components/Toolbox";
+import StackCorridor from "./components/StackCorridor";
 import { useReveal } from "./lib/reveal";
 
 export default function App() {
@@ -23,7 +23,7 @@ export default function App() {
       <Nav />
       <main id="main">
         <Hero />
-        <Toolbox />
+        <StackCorridor />
         <Expertise />
         <Experience />
         <Education />

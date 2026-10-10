@@ -69,3 +69,125 @@
     transform: none;
   }
 }
+
+/* ── Stack corridor (StackCorridor.tsx) ─────────────────────────────────── */
+.corridor {
+  container-type: inline-size;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+  background: radial-gradient(120% 70% at 50% 62%, var(--bg) 0%, var(--surface) 70%);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.corridor-space {
+  position: relative;
+  height: max(26rem, 50cqw);
+  margin-top: -3rem;
+  perspective: 30cqw;
+  perspective-origin: 50% 55%;
+  transform-style: preserve-3d;
+}
+
+.corridor-card {
+  --w: 14cqw;
+  --h: 30cqw;
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  width: var(--w);
+  height: var(--h);
+  margin-left: calc(var(--w) / -2);
+  margin-top: calc(var(--h) / -2);
+  display: grid;
+  place-items: center;
+  border-radius: 1.2cqw;
+  background: #fff;
+  box-shadow: 0 1cqw 3cqw rgb(15 23 42 / 0.12);
+  opacity: 0;
+  animation: corridor-r 26s linear infinite;
+  backface-visibility: hidden;
+}
+.corridor-card[data-side="l"] {
+  animation-name: corridor-l;
+}
+.corridor.is-paused .corridor-card {
+  animation-play-state: paused;
+}
+
+.corridor-logo {
+  width: 56%;
+  height: 26%;
+}
+.corridor-wordmark {
+  padding: 0 8%;
+  font-family: var(--font-display);
+  font-size: 2.1cqw;
+  line-height: 1;
+  text-align: center;
+  color: #0f172a;
+}
+.corridor-name {
+  position: absolute;
+  bottom: 7%;
+  font-size: 1.2cqw;
+  font-weight: 500;
+  color: #475569;
+}
+.corridor-next {
+  position: absolute;
+  top: 6%;
+  right: 6%;
+  padding: 0.2cqw 0.7cqw;
+  border-radius: 99px;
+  background: #eef3ff;
+  font-size: 0.85cqw;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+/* Narrow screens: bigger cards so logos stay legible. */
+@container (max-width: 640px) {
+  .corridor-card {
+    --w: 24cqw;
+    --h: 51cqw;
+    border-radius: 2cqw;
+  }
+  /* Flatter perspective so cards on the walls stay readable on phones. */
+  .corridor-space { perspective: 60cqw; height: max(22rem, 112cqw); }
+  .corridor-wordmark { font-size: 3.6cqw; }
+  .corridor-name { font-size: 2cqw; }
+  .corridor-next { font-size: 1.6cqw; padding: 0.3cqw 1.2cqw; }
+}
+
+/* Path from the vanishing point out to the right / left wall. */
+@keyframes corridor-r {
+  0% { transform: translate3d(-11cqw, 0, -258cqw) rotateY(-6deg); opacity: 0; }
+  9% { opacity: 1; }
+  26% { transform: translate3d(23.7cqw, 0, -106cqw) rotateY(-11.7deg); }
+  52% { transform: translate3d(39.2cqw, 0, -34.4cqw) rotateY(-17.5deg); }
+  78% { transform: translate3d(43.6cqw, 0, -0.5cqw) rotateY(-23.2deg); }
+  100% { transform: translate3d(44cqw, 0, 13.7cqw) rotateY(-28deg); opacity: 1; }
+}
+@keyframes corridor-l {
+  0% { transform: translate3d(11cqw, 0, -258cqw) rotateY(6deg); opacity: 0; }
+  9% { opacity: 1; }
+  26% { transform: translate3d(-23.7cqw, 0, -106cqw) rotateY(11.7deg); }
+  52% { transform: translate3d(-39.2cqw, 0, -34.4cqw) rotateY(17.5deg); }
+  78% { transform: translate3d(-43.6cqw, 0, -0.5cqw) rotateY(23.2deg); }
+  100% { transform: translate3d(-44cqw, 0, 13.7cqw) rotateY(28deg); opacity: 1; }
+}
+
+.corridor-static {
+  @apply sr-only;
+}
+@media (prefers-reduced-motion: reduce) {
+  /* Kept in the DOM (not display:none) so the static list can reuse its SVG gradients. */
+  .corridor-space { height: 0; margin: 0; overflow: hidden; visibility: hidden; }
+  .corridor-static {
+    @apply not-sr-only relative z-10 flex flex-wrap justify-center gap-2 px-6 pt-10 pb-14;
+  }
+  .corridor-static li {
+    @apply inline-flex items-center gap-2 rounded-full border border-line bg-bg px-4 py-2 text-sm;
+  }
+}

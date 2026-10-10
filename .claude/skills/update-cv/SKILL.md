@@ -14,7 +14,7 @@ The website and the PDF both render from `src/content/cv.ts`. One edit updates b
 ## 2. Edit `src/content/cv.ts`
 - Follow the types in `src/content/types.ts`. Keep lists ordered most recent first. Use `end: null` for the current role. When a role ends, set its `end` year.
 - Bullet style: start with a past-tense action verb (present tense for the current role is fine), say what was built and why it mattered, and name the tools. Aim for 1–2 lines, 3–5 bullets per role, with the most impressive first.
-- `tags`: 4–7 concrete tools or skills. Update `toolbox` if a tool becomes a daily one.
+- `tags`: 4–7 concrete tools or skills. Add new tools to `stack` (logo key from `src/content/logos.ts`, or none for a monogram card); mark the upcoming role's tools with `next: true` and remove that flag once the role starts.
 - New logo: put the PNG in `public/assets/experience-logos/` (or `education-logos/`) and reference its filename.
 - Privacy: no street address, birthday or other private data. Everything in this file is public.
 - Keep `person.summary` and `services` consistent with the new direction if the role changes.

@@ -1,6 +1,6 @@
 import { ArrowRight, Download, MapPin } from "lucide-react";
 import { cv } from "../content/cv";
-import { PDF_FILENAME, asset, currentRole } from "../content/format";
+import { PDF_FILENAME, asset, currentRole, nextRole } from "../content/format";
 import { revealDelay } from "../lib/reveal";
 import Emphasis from "./Emphasis";
 import { BrandIcon } from "./Icons";
@@ -80,6 +80,11 @@ export default function Hero() {
               <span className="text-sm leading-tight">
                 <span className="block text-subtle">Currently at</span>
                 <span className="font-medium">{currentRole.organization}</span>
+                {nextRole && (
+                  <span className="mt-0.5 block text-xs text-accent">
+                    Joining {nextRole.organization} · {nextRole.startMonth?.slice(0, 3)} {nextRole.start}
+                  </span>
+                )}
               </span>
             </figcaption>
           )}
