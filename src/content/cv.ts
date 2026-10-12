@@ -214,5 +214,5 @@ export const cv = {
     { name: "Spanish", level: "Intermediate", proficiency: 30 },
   ],
 
-  hobbies: ["Tennis", "Indoor Football", "Drums", "Percussion"],
+  hobbies: ["Running", "Tennis & Padel", "Drums", "Percussion"],
 } satisfies CV;
