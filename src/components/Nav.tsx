@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Download } from "lucide-react";
 import { cv } from "../content/cv";
-import { PDF_FILENAME } from "../content/format";
+import { PDF_FILENAME, writingPosts } from "../content/format";
 import ThemeToggle from "./ThemeToggle";
 
 const links = [
@@ -9,6 +9,7 @@ const links = [
   { href: "#experience", label: "Experience" },
   { href: "#education", label: "Education" },
   { href: "#approach", label: "Approach" },
+  ...(writingPosts.length ? [{ href: "#writing", label: "LinkedIn" }] : []),
   { href: "#contact", label: "Contact" },
 ];
 
@@ -32,7 +33,7 @@ export default function Nav() {
         <a href="#top" className="font-display text-2xl tracking-tight">
           {cv.person.name}
         </a>
-        <ul className="hidden items-center gap-7 text-sm text-muted md:flex">
+        <ul className="hidden items-center gap-6 text-sm text-muted lg:flex xl:gap-7">
           {links.map((l) => (
             <li key={l.href}>
               <a href={l.href} className="transition-colors hover:text-ink">

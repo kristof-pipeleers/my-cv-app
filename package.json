@@ -10,7 +10,8 @@
     "build:dev": "tsc --noEmit && vite build --mode dev --base=/dev/ && node scripts/prerender.mjs --mode dev --base /dev/",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "pdf": "node scripts/generate-pdf.mjs"
+    "pdf": "node scripts/generate-pdf.mjs",
+    "linkedin:sync": "node --env-file-if-exists=.env.local scripts/linkedin-sync.mjs"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.3.0",

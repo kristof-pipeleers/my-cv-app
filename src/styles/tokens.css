@@ -16,6 +16,7 @@
   --band-2: #16213e;
   --band-ink: #f1f5f9;
   --band-muted: #a5b4cb;
+  --linkedin: #0a66c2;
 }
 
 .dark {
@@ -29,4 +30,5 @@
   --accent-soft: rgb(96 165 250 / 0.12);
   --band: #1a1a2e;
   --band-2: #16213e;
+  --linkedin: #70b5f9;
 }

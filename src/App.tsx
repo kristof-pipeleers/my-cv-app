@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Nav from "./components/Nav";
 import StackCorridor from "./components/StackCorridor";
+import Writing from "./components/Writing";
 import { useReveal } from "./lib/reveal";
 
 export default function App() {
@@ -28,6 +29,7 @@ export default function App() {
         <Experience />
         <Education />
         <Approach />
+        <Writing />
       </main>
       <Contact />
       <Footer />

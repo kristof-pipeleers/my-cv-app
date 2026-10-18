@@ -1,5 +1,6 @@
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { cv } from "../content/cv";
+import { writingPosts } from "../content/format";
 import Emphasis from "./Emphasis";
 import { BrandIcon } from "./Icons";
 
@@ -22,7 +23,7 @@ export default function Contact() {
         />
         <div className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
           <p className="eyebrow !text-band-muted flex items-baseline gap-3" data-reveal>
-            <span className="text-[#60a5fa]">05</span> Contact
+            <span className="text-[#60a5fa]">{writingPosts.length ? "06" : "05"}</span> Contact
           </p>
           <h2 className="display mt-8 max-w-4xl text-6xl sm:text-7xl lg:text-8xl [&_em]:text-[#60a5fa]" data-reveal>
             <Emphasis text="Let's build something *reliable*." />

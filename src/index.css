@@ -19,6 +19,7 @@
   --color-band-2: var(--band-2);
   --color-band-ink: var(--band-ink);
   --color-band-muted: var(--band-muted);
+  --color-linkedin: var(--linkedin);
 }
 
 @layer base {
@@ -46,7 +47,7 @@
     @apply font-display font-normal tracking-[-0.02em] leading-[0.95];
   }
   .btn {
-    @apply inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-all duration-200;
+    @apply inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full px-5 py-3 text-sm font-medium transition-all duration-200;
   }
   .btn-primary {
     @apply bg-ink text-bg hover:bg-accent hover:text-white;

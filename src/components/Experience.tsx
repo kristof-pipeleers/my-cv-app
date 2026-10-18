@@ -1,38 +1,74 @@
 import { ArrowUpRight } from "lucide-react";
 import { cv } from "../content/cv";
 import { asset, formatJobPeriod } from "../content/format";
+import type { Experience as Job } from "../content/types";
+import { revealDelay } from "../lib/reveal";
 import Section from "./Section";
 
-export default function Experience() {
+type Status = "upcoming" | "current" | "past";
+
+const statusOf = (job: Job): Status => (job.upcoming ? "upcoming" : job.end === null ? "current" : "past");
+
+// Static class names so Tailwind can see them; one column per role on large screens.
+const lgCols = ["lg:grid-cols-1", "lg:grid-cols-1", "lg:grid-cols-2", "lg:grid-cols-3", "lg:grid-cols-4"];
+
+const statusLabel: Record<Status, string | null> = { upcoming: "Next", current: "Current role", past: null };
+
+/** Timeline dot: open ring for the next role, pulsing accent for the current one, muted for past roles. */
+function Node({ status }: { status: Status }) {
   return (
-    <Section id="experience" number="02" label="Experience" title="Where I've *worked*.">
-      <ol className="divide-y divide-line border-y border-line">
-        {cv.experience.map((job) => (
-          <li key={job.id} className="grid gap-6 py-10 sm:py-12 md:grid-cols-[11rem_1fr] md:gap-10" data-reveal>
-            <div className="flex items-center gap-4 md:flex-col md:items-start">
+    <span aria-hidden="true" className="absolute top-0 left-0 grid size-[15px] place-items-center">
+      {status === "current" && <span className="absolute size-full animate-ping rounded-full bg-accent/40" />}
+      <span
+        className={`relative size-[15px] rounded-full ${
+          status === "upcoming"
+            ? "border-2 border-accent bg-bg"
+            : status === "current"
+              ? "bg-accent ring-4 ring-accent/20"
+              : "border-2 border-subtle bg-bg"
+        }`}
+      />
+    </span>
+  );
+}
+
+/**
+ * Career timeline (inspired by spott.io/careers): horizontal with a connecting line on wide
+ * screens, vertical with the line on the left on smaller screens. Most recent role first.
+ */
+export default function Experience() {
+  const jobs: Job[] = cv.experience;
+
+  return (
+    <Section id="experience" number="02" label="Experience" title="Where I've *worked*." wide>
+      <ol className={`relative grid gap-14 lg:gap-10 ${lgCols[Math.min(jobs.length, 4)]}`}>
+        {/* The line: vertical on small screens, horizontal on large ones. */}
+        <span
+          aria-hidden="true"
+          className="absolute top-2 bottom-2 left-[7px] w-px bg-line lg:top-[7px] lg:right-0 lg:bottom-auto lg:left-0 lg:h-px lg:w-auto"
+        />
+
+        {jobs.map((job, i) => {
+          const status = statusOf(job);
+          const label = statusLabel[status];
+          return (
+            <li key={job.id} className="relative pl-10 lg:pt-12 lg:pl-0" data-reveal style={revealDelay(i * 120)}>
+              <Node status={status} />
+
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 lg:-mt-0.5">
+                <p className="text-sm font-medium tabular-nums">{formatJobPeriod(job)}</p>
+                {label && (
+                  <span className="rounded-full bg-accent-soft px-2.5 py-0.5 text-xs font-medium text-accent">{label}</span>
+                )}
+              </div>
+
               <img
                 src={asset(`experience-logos/${job.logo}`)}
                 alt=""
-                className="h-12 w-24 rounded-xl bg-white object-contain px-2.5 py-1.5 ring-1 ring-line"
+                className="mt-6 h-12 w-24 rounded-xl bg-white object-contain px-2.5 py-1.5 ring-1 ring-line"
               />
-              <div>
-                <p className="text-sm font-medium tabular-nums">{formatJobPeriod(job)}</p>
-                {"upcoming" in job ? (
-                  <p className="mt-1 inline-flex items-center gap-1.5 text-xs text-accent">
-                    <span className="size-1.5 rounded-full bg-accent" aria-hidden="true" />
-                    Upcoming
-                  </p>
-                ) : job.end === null && (
-                  <p className="mt-1 inline-flex items-center gap-1.5 text-xs text-accent">
-                    <span className="size-1.5 animate-pulse rounded-full bg-accent" aria-hidden="true" />
-                    Current role
-                  </p>
-                )}
-              </div>
-            </div>
 
-            <div>
-              <h3 className="font-display text-3xl leading-tight sm:text-4xl">{job.role}</h3>
+              <h3 className="mt-5 font-display text-3xl leading-tight sm:text-4xl lg:text-[2rem]">{job.role}</h3>
               {job.website ? (
                 <a
                   href={job.website}
@@ -47,7 +83,7 @@ export default function Experience() {
                 <p className="mt-2 text-accent">{job.organization}</p>
               )}
 
-              <ul className="mt-6 space-y-3 leading-relaxed text-muted">
+              <ul className="mt-6 space-y-3 leading-relaxed text-muted lg:text-[0.95rem]">
                 {job.highlights.map((h) => (
                   <li key={h} className="flex gap-4">
                     <span className="mt-[0.7em] h-px w-4 shrink-0 bg-accent" aria-hidden="true" />
@@ -63,9 +99,9 @@ export default function Experience() {
                   </li>
                 ))}
               </ul>
-            </div>
-          </li>
-        ))}
+            </li>
+          );
+        })}
       </ol>
     </Section>
   );

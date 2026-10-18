@@ -215,4 +215,10 @@ export const cv = {
   ],
 
   hobbies: ["Running", "Tennis & Padel", "Drums", "Percussion"],
+
+  // LinkedIn posts (synced with `npm run linkedin:sync`). Add post URLs to pin specific ones.
+  writing: {
+    featured: [],
+    max: 3,
+  },
 } satisfies CV;

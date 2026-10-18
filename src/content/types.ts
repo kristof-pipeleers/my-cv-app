@@ -34,6 +34,20 @@ export interface Social {
   onResume?: boolean;
 }
 
+export interface LinkedInPost {
+  /** "repost" = reposted someone else's post (text is your comment, may be empty). */
+  type: "post" | "repost";
+  date: string;
+  url: string;
+  text: string;
+}
+
+export interface Writing {
+  /** LinkedIn post URLs to show, in order. Empty = the latest `max` public posts. */
+  featured: string[];
+  max: number;
+}
+
 export interface StackItem {
   name: string;
   /** Key in src/content/logos.ts; without one the card shows a monogram. */
@@ -101,4 +115,5 @@ export interface CV {
   principles: Principle[];
   languages: Language[];
   hobbies: string[];
+  writing: Writing;
 }
