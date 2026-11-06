@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { cv } from "../content/cv";
-import { formatJobPeriod, formatPeriod, lastUpdated } from "../content/format";
+import { asset, formatJobPeriod, formatPeriod, lastUpdated } from "../content/format";
+import { formatCertDate } from "../components/Certifications";
 
 function Heading({ number, children }: { number: string; children: ReactNode }) {
   return (
@@ -88,7 +89,27 @@ export default function Resume() {
             </div>
           ))}
 
-          <Heading number="04">How I work</Heading>
+          {cv.certifications.length > 0 && (
+            <>
+              <Heading number="04">Certifications</Heading>
+              {cv.certifications.map((c) => (
+                <div key={c.id} className="r-cert">
+                  <img src={asset(`certifications/${c.badge}`)} alt="" />
+                  <div>
+                    <h3 className="r-subtitle">
+                      {c.name}
+                      {c.code && ` (${c.code})`}
+                    </h3>
+                    <p className="r-desc">
+                      {c.issuer} Certified · {formatCertDate(c.date)}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
+
+          <Heading number={cv.certifications.length ? "05" : "04"}>How I work</Heading>
           {cv.principles.map((q) => (
             <div key={q.id} className="r-block">
               <h3 className="r-subtitle">{q.title}</h3>
@@ -96,7 +117,7 @@ export default function Resume() {
             </div>
           ))}
 
-          <Heading number="05">Languages</Heading>
+          <Heading number={cv.certifications.length ? "06" : "05"}>Languages</Heading>
           {cv.languages.map((l) => (
             <div key={l.name} className="r-lang">
               <div className="r-row">
@@ -109,7 +130,7 @@ export default function Resume() {
             </div>
           ))}
 
-          <Heading number="06">Off the clock</Heading>
+          <Heading number={cv.certifications.length ? "07" : "06"}>Off the clock</Heading>
           <p className="r-desc">{cv.hobbies.join(" · ")}</p>
         </aside>
       </div>

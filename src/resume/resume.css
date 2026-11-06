@@ -264,3 +264,23 @@ aside > .r-heading:first-child {
   color: var(--subtle);
   letter-spacing: 0.04em;
 }
+
+.r-cert {
+  display: flex;
+  align-items: center;
+  gap: 2.4mm;
+}
+
+.r-cert + .r-cert {
+  margin-top: 2mm;
+}
+
+.r-cert img {
+  width: 9mm;
+  height: 9mm;
+  flex-shrink: 0;
+}
+
+.r-cert .r-desc {
+  margin-top: 0.2mm;
+}

@@ -2,6 +2,7 @@ import { ArrowRight, Download, MapPin } from "lucide-react";
 import { cv } from "../content/cv";
 import { PDF_FILENAME, asset, currentRole, nextRole } from "../content/format";
 import { revealDelay } from "../lib/reveal";
+import { HeroCertifications } from "./Certifications";
 import Emphasis from "./Emphasis";
 import { BrandIcon } from "./Icons";
 
@@ -57,6 +58,7 @@ export default function Hero() {
               ))}
             </ul>
           </div>
+          <HeroCertifications />
         </div>
 
         <figure className="relative mx-auto w-full max-w-xs lg:max-w-none" data-reveal style={revealDelay(150)}>

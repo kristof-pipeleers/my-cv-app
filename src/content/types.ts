@@ -98,6 +98,21 @@ export interface Principle {
   evidence?: { label: string; url: string };
 }
 
+export interface Certification {
+  id: string;
+  /** Official title without the issuer prefix, e.g. "Fabric Data Engineer Associate". */
+  name: string;
+  /** Exam code, e.g. "DP-700". */
+  code?: string;
+  issuer: string;
+  /** Issue date as YYYY-MM-DD. */
+  date: string;
+  /** Badge image in public/assets/certifications/. */
+  badge: string;
+  /** Public verification link (Microsoft Learn / Credly share link). */
+  url?: string;
+}
+
 export interface Language {
   name: string;
   level: string;
@@ -113,6 +128,7 @@ export interface CV {
   experience: Experience[];
   education: Education[];
   principles: Principle[];
+  certifications: Certification[];
   languages: Language[];
   hobbies: string[];
   writing: Writing;

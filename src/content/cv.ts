@@ -214,6 +214,18 @@ export const cv = {
     { name: "Spanish", level: "Intermediate", proficiency: 30 },
   ],
 
+  // Most recent first. Shown in the hero, the footer signature and the PDF.
+  certifications: [
+    {
+      id: "dp-700",
+      name: "Fabric Data Engineer Associate",
+      code: "DP-700",
+      issuer: "Microsoft",
+      date: "2026-11-06",
+      badge: "dp-700.png",
+    },
+  ],
+
   hobbies: ["Running", "Tennis & Padel", "Drums", "Percussion"],
 
   // LinkedIn posts (synced with `npm run linkedin:sync`). Add post URLs to pin specific ones.
