@@ -1,5 +1,5 @@
 // Renders resume.html (same content + design tokens as the site) to a one-page A4 PDF,
-// and a 1200×630 social preview image from the homepage hero.
+// and a 1200×630 social preview card (og.html) for LinkedIn/Slack/WhatsApp link previews.
 //
 //   npm run pdf                       → public/Kristof_Pipeleers_CV.pdf + public/og-image.png
 //   npm run pdf -- --preview out.png  → also save a PNG of the CV for visual review
@@ -51,11 +51,9 @@ try {
 
   // --- Social preview image ---
   const og = await browser.newPage({ viewport: { width: 1200, height: 630 }, colorScheme: "light" });
-  await og.addInitScript(() => localStorage.setItem("theme", "light"));
-  await og.goto(base, { waitUntil: "networkidle" });
+  await og.goto(`${base}og.html`, { waitUntil: "networkidle" });
   await og.evaluate(() => document.fonts.ready);
-  await og.addStyleTag({ content: "[data-reveal]{opacity:1!important;transform:none!important}" });
-  await og.screenshot({ path: OG_PATH });
+  await og.locator("#og-card").screenshot({ path: OG_PATH });
   console.log(`OG img  → ${OG_PATH}`);
 
   if (overflow > 0) {
